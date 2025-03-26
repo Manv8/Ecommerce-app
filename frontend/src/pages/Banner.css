@@ -1,0 +1,14 @@
+.banner {
+    text-align: center;
+    padding: 50px;
+    background: url('/images/banner.jpg') no-repeat center/cover;
+    color: white;
+  }
+  .banner button {
+    padding: 10px 20px;
+    background: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
