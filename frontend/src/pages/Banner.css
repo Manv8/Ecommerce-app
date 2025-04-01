@@ -1,14 +1,89 @@
+/* Banner container */
 .banner {
-    text-align: center;
-    padding: 50px;
-    background: url('/images/banner.jpg') no-repeat center/cover;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10vh 5vw;
+  background: url('/images/banner.jpg') no-repeat center center;
+  background-size: cover;
+  color: #141E30;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Banner heading */
+.banner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Banner paragraph */
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Shop Now button */
+.banner button {
+  padding: 10px 20px;
+  background: #141E30;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.banner button:hover {
+  transform: scale(1.05);
+  background-color: #0d1523;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .banner h2 {
+    font-size: 2rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+
   .banner button {
-    padding: 10px 20px;
-    background: #ff5722;
-    color: white;
-    border: none;
-    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .banner {
+    padding: 15vh 5vw;
+  }
+
+  .banner h2 {
+    font-size: 1.5rem;
+  }
+
+  .banner p {
+    font-size: 0.9rem;
+  }
+
+  .banner button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}

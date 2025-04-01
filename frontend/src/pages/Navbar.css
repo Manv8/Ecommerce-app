@@ -1,19 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+font-family: Poppins;
+}
+
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    padding: 1rem;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #ff6f61, #e65b50);
+  padding: 1rem 2rem;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.navbar ul li {
+  margin: 0 15px;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #ffd700;
+}
+
+/* Sliding Indicator (Only Under Active Item) */
+.nav-indicator {
+  position: absolute;
+  bottom: -5px;
+  height: 3px;
+  background-color: #ffd700;
+  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+/* Highlight Active Page */
+.navbar ul li.active a {
+  color: #ffd700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
+
   .navbar ul {
-    display: flex;
-    list-style: none;
+    flex-direction: column;
+    width: 100%;
   }
+
   .navbar ul li {
-    margin: 0 10px;
+    margin: 5px 0;
   }
-  .navbar a {
-    color: white;
-    text-decoration: none;
+
+  .nav-indicator {
+    display: none; /* Hide for mobile */
   }
-  
+}

@@ -13,8 +13,22 @@ export const CartProvider = ({ children }) => {
   }, [cart, wishlist]);
 
   const addToCart = (product) => {
-    if (!cart.some((item) => item.id === product.id)) {
-      setCart([...cart, product]);
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      return [...prevCart, { ...product, quantity: 1 }]; // Default quantity to 1
+    });
+  };
+
+  const updateCartQuantity = (id, quantity) => {
+    if (quantity < 1) {
+      removeFromCart(id);
+    } else {
+      setCart(cart.map((item) => (item.id === id ? { ...item, quantity } : item)));
     }
   };
 
@@ -33,7 +47,9 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, wishlist, addToCart, removeFromCart, addToWishlist, removeFromWishlist }}>
+    <CartContext.Provider 
+      value={{ cart, wishlist, addToCart, updateCartQuantity, removeFromCart, addToWishlist, removeFromWishlist }}
+    >
       {children}
     </CartContext.Provider>
   );
