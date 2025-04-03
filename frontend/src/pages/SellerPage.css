@@ -4,10 +4,17 @@
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
-  width: 70%;
+  width: 80%;
   margin: auto;
   padding: 20px;
   flex-wrap: wrap;
+}
+
+.headingSeller {
+  color: #141E30;
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
 }
 
 /* Sections (Products & Sell Form) */
@@ -32,7 +39,7 @@
 }
 
 /* Individual Product Card */
-.product-item {
+.product-item1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,50 +47,75 @@
   border-radius: 10px;
   border: 1px solid #ddd;
   background: #f9f9f9;
+  gap: 10px;
 }
 
-.product-image {
-  width: 60px;
-  height: 60px;
+/* Fixed Image Height */
+/* .product-image img{
+  width: 80px;
+  height: 80px; 
   object-fit: cover;
   border-radius: 5px;
+  flex-shrink: 0;
+} */
+
+.product-item1 img{
+  height: 100px;
+  width: 100px;
 }
 
-.product-details {
+/* Product Details */
+.product-details1 {
   flex-grow: 1;
   text-align: left;
   padding: 0 10px;
 }
 
+.product-details1 h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.product-details1 p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff;
+  margin: 5px 0 0;
+}
+
+/* Buttons Section */
 .btn-group {
   display: flex;
+  flex-direction: column;
   gap: 5px;
 }
 
 /* Buttons */
-.edit-btn, .remove-btn {
-  padding:5px, 10px;
+.edit-btn1, .remove-btn1 {
+  padding: 6px 12px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   font-size: 14px;
   transition: background 0.3s;
+  width: 80px;
 }
 
-.edit-btn {
+.edit-btn1 {
   background-color: #141E30;
+  color: white;
 }
 
-.edit-btn:hover {
+.edit-btn1:hover {
   background-color: rgb(31, 52, 156);
 }
 
-.remove-btn {
+.remove-btn1 {
   background-color: #ff4d4d;
   color: white;
 }
 
-.remove-btn:hover {
+.remove-btn1:hover {
   background-color: #cc0000;
 }
 
@@ -143,5 +175,21 @@
 
   .section {
     width: 100%;
+  }
+
+  .product-item1 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .btn-group {
+    flex-direction: row;
+    justify-content: center;
   }
 }

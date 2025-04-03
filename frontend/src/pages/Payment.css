@@ -1,0 +1,89 @@
+.payment-container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2, h3 {
+    color: #333;
+  }
+  
+  .user-details {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .user-details p {
+    margin: 5px 0;
+  }
+  
+  .total-amount {
+    font-size: 18px;
+    color: #ff5733;
+  }
+  
+  .payment-options {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .payment-options label {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  .btnDIv{
+    display: flex;
+    align-items:center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .pay-btn {
+    background-color: #339c31;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .pay-btn:hover {
+    background-color: #1a5719;
+  }
+  .cancel-btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #d43a2f;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .payment-container {
+      width: 90%;
+    }
+  }
+  

@@ -139,7 +139,7 @@
 .wishlist-btn {
   font-size: 24px;
   cursor: pointer;
-  color: #ccc;
+  /* color: black; */
   transition: color 0.3s;
 }
 
@@ -154,4 +154,8 @@
   font-size: 18px;
   color: #555;
   margin-top: 20px;
+}
+.product-link{
+  text-decoration: none; /* Removes underline */
+  color: inherit; 
 }

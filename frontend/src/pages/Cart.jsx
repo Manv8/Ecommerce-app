@@ -43,7 +43,7 @@ const Cart = () => {
             ))}
           </ul>
           <div className="cart-footer">
-            <h3>Total : ₹ {total.toFixed(2)}</h3>
+            <h3>Total : ₹ {total.toFixed(2)*100}</h3>
             <button className="checkout-btn" onClick={() => navigate("/checkout")}>Checkout</button>
           </div>
         </>

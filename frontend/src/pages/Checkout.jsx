@@ -27,9 +27,12 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Order Placed:", formData);
-    alert("Order placed successfully!");
-    navigate("/"); // Redirect to homepage after order
-  };
+    // alert("Order placed successfully!");
+    navigate("/payment", { state: { formData, total } });  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+ 
+  // };
 
   return (
     <div className="checkout-container">
@@ -40,7 +43,7 @@ const Checkout = () => {
         <input type="text" name="address" placeholder="Shipping Address" required onChange={handleChange} />
         <input type="text" name="phone" placeholder="Phone Number" required onChange={handleChange} />
         
-        <h3>Total Amount: ₹ {total.toFixed(2)}</h3>
+        <h3>Total Amount: ₹ {total.toFixed(2)*100}</h3>
 
         <button type="submit">Proceed to Payment</button>
       </form>

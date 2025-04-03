@@ -66,22 +66,24 @@ const SellerPage = ({ onAddProduct }) => {
   };
 
   return (
+    <>
+      <h2 className="headingSeller">Seller Account</h2>
     <div className="seller-page">
       {/* Previous Orders */}
       <div className="section">
-        <h2>Your Products</h2>
+        <h2>Previous Products</h2>
         {products.length > 0 ? (
           <div className="products-grid">
             {products.map((item, index) => (
-              <div key={index} className="product-item">
+              <div key={index} className="product-item1">
                 <img src={item.image} alt={item.title} className="product-image" />
-                <div className="product-details">
+                <div className="product-details1">
                   <h3>{item.title}</h3>
                   <p>₹ {item.price}</p>
                 </div>
                 <div className="btn-group">
-                  <button onClick={() => handleEditProduct(index)} className="edit-btn">Edit</button>
-                  <button onClick={() => handleRemoveProduct(index)} className="remove-btn">Remove</button>
+                  <button onClick={() => handleEditProduct(index)} className="edit-btn1">Edit</button>
+                  <button onClick={() => handleRemoveProduct(index)} className="remove-btn1">Remove</button>
                 </div>
               </div>
             ))}
@@ -107,6 +109,7 @@ const SellerPage = ({ onAddProduct }) => {
         {showPopup && <div className="popup">✅ Product {editingIndex !== null ? "updated" : "added"} successfully!</div>}
       </div>
     </div>
+  </>
   );
 };
 

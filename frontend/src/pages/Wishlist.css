@@ -104,7 +104,7 @@
   transition: background 0.3s ease;
 } */
 .wishlist-container button:hover {
-  background: #fbf9f927;
+  background-color: #fbf9f927;
   color: black;
   border: 1px solid black;
 }
@@ -138,9 +138,9 @@
   color: white;
 }
 
-.cartmsg button:hover {
-  color: #f44336; /* Red color on hover */
-}
+/* .cartmsg button:hover {
+  color: #f44336;
+} */
 .popup-message {
   position: fixed;
   top: 20px;
@@ -158,4 +158,7 @@
   10% { opacity: 1; transform: translateY(0); }
   90% { opacity: 1; }
   100% { opacity: 0; transform: translateY(-10px); }
+}
+.wishlist-details{
+  width: 300px;
 }
