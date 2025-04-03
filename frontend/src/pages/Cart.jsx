@@ -25,7 +25,7 @@ const Cart = () => {
                 <div className="cart-details">
                   <h3>{item.title}</h3>
                   <div className="priceDet">
-                    <p>₹ {item.price.toFixed(2)}</p>
+                    <p>₹ {item.price.toFixed(2)*100}</p>
                     <div className="quantity-controls">
                       <button 
                         onClick={() => updateCartQuantity(item.id, item.quantity - 1)}

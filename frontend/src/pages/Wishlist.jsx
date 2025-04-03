@@ -31,7 +31,7 @@ const Wishlist = () => {
               <img src={item.images[0]} alt={item.title} />
               <div className="wishlist-details">
                 <h3>{item.title}</h3>
-                <p>₹ {item.price.toFixed(2)}</p>
+                <p>₹{item.price.toFixed(2)*100}</p>
               </div>
               <div className="wishlist-actions">
                 <button className="add-cart-btn" onClick={() => handleAddToCart(item)}>

@@ -1,64 +1,147 @@
-.seller-container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+/* General Page Layout */
+.seller-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 70%;
+  margin: auto;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+/* Sections (Products & Sell Form) */
+.section {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Products Grid */
+.products-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual Product Card */
+.product-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+}
+
+.product-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.product-details {
+  flex-grow: 1;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 5px;
+}
+
+/* Buttons */
+.edit-btn, .remove-btn {
+  padding:5px, 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.edit-btn {
+  background-color: #141E30;
+}
+
+.edit-btn:hover {
+  background-color: rgb(31, 52, 156);
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.remove-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Form Inputs */
+.section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Sell Button */
+.sell-btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 12px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.sell-btn:hover {
+  background-color: #e65b50;
+}
+
+/* Popup Message */
+.popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(76, 175, 80, 0.9);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .seller-page {
+    flex-direction: column;
+    width: 90%;
   }
-  
-  .seller-container h2 {
-    margin-bottom: 15px;
-  }
-  
-  .seller-container input {
+
+  .section {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
   }
-  
-  .seller-container .preview-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .seller-container button {
-    background-color: #ff6f61;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-  }
-  
-  .seller-container button:hover {
-    background-color: #e65b50;
-  }
-  
-  .popup {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(76, 175, 80, 0.9);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    animation: fadeInOut 3s ease-in-out;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  @keyframes fadeInOut {
-    0%, 100% { opacity: 0; transform: translateY(10px); }
-    10%, 90% { opacity: 1; transform: translateY(0px); }
-  }
+}

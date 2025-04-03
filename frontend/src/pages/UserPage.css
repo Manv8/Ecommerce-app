@@ -6,6 +6,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    color: #007bff;
   }
   
   .user-header {
@@ -13,6 +14,7 @@
     flex-direction: column;
     align-items: center;
   }
+
   
   .profile-pic {
     width: 120px;
@@ -30,7 +32,7 @@
   }
   
   .user-options button {
-    background-color: #007bff;
+    background-color: #141E30;
     color: white;
     padding: 10px 15px;
     border: none;

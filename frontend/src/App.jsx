@@ -16,10 +16,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/seller" element={<SellerPage />} />

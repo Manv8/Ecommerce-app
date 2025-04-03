@@ -10,7 +10,7 @@ const Login = () => {
 
   // Function to close login and navigate to homepage
   const handleClose = () => {
-    navigate("/"); // Redirect to homepage
+    navigate("/home"); // Redirect to homepage
   };
 
   return (

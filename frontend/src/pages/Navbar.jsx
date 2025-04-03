@@ -9,10 +9,10 @@ const Navbar = () => {
   const [indicatorStyle, setIndicatorStyle] = useState({});
 
   const navItems = [
-    { name: "Home", path: "/" },
+    { name: "Home", path: "/home" },
     { name: "Cart", path: "/cart" },
     { name: "Wishlist", path: "/wishlist" },
-    { name: "Login", path: "/login" },
+    { name: "Login", path: "/" },
     { name: "Seller", path: "/seller" },
     { name: <FaUser />, path: "/user" },
   ];
