@@ -13,6 +13,8 @@ import Payment from "./pages/Payment";
 import ProductDetails from "./pages/ProductDetails";
 import OrderSuccess from "./pages/OrderSuccess";
 import Footer from "./pages/Footer";
+import UserOrders from "./pages/UserOrders";
+import Jarvis from "./pages/Jarvis";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/product/:productName" element={<ProductDetails />} />
           <Route path="/order-success" element={<OrderSuccess />} />
+          <Route path="/orders" element={<UserOrders />} />
+          <Route path="/jarvis" element={<Jarvis />} />
         </Routes>
       </Router>
     </CartProvider>

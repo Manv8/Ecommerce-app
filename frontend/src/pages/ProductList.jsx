@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { CartContext } from "../context/CartContext";
-import { useNavigate, Link } from "react-router-dom"; // Import Link
+import { useNavigate, Link } from "react-router-dom";
 import "./ProductList.css";
 
 const ProductList = () => {
@@ -15,8 +15,8 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://api.escuelajs.co/api/v1/products");
-        const apiProducts = response.data || [];
+        const response = await axios.get("https://dummyjson.com/products");
+        const apiProducts = response.data.products || []; // Access 'products' array correctly
         const localProducts = JSON.parse(localStorage.getItem("products")) || [];
 
         setProducts([...apiProducts, ...localProducts]);
@@ -39,18 +39,16 @@ const ProductList = () => {
 
   // Group products by category
   const groupedProducts = products.reduce((acc, product) => {
-    const category = product.category?.name || product.category || "Other";
+    const category = product.category || "Other"; // Ensure category is handled properly
     acc[category] = [...(acc[category] || []), product];
     return acc;
   }, {});
 
-  // Sort categories
+  // Sort categories (optional sorting logic)
   const sortedCategories = Object.entries(groupedProducts).sort(([categoryA], [categoryB]) => {
-    if (categoryA === "Electronics") return -1;  // Move "Electronics" to the top
-    if (categoryB === "Electronics") return 1;
-    if (categoryA === "Updated Category Name") return 1; // Move "Updated Category Name" to the bottom
-    if (categoryB === "Updated Category Name") return -1;
-    return 0; // Keep other categories in their original order
+    // if (categoryA === "Electronics") return -1;
+    // if (categoryB === "Electronics") return 1;
+    // return 0;
   });
 
   return (
@@ -73,14 +71,14 @@ const ProductList = () => {
             <div className="product-grid">
               {categoryProducts.map((product, index) => (
                 <div key={product.id || index} className="product-card animate" style={{ animationDelay: `${index * 0.1}s` }}>
-                  {/* ✅ Wrapped image and title inside Link for product page navigation */}
                   <Link to={`/product/${product.title.replace(/\s+/g, "-").toLowerCase()}`} className="product-link">
-                    <img src={product.images ? product.images[0] : product.image} alt={product.title} />
+                    <img src={product.images?.[0] || product.image} alt={product.title} />
                     <div className="productDet">
+                      <h3>{product.description || "No description available."}</h3>
                       <p>₹ {product.price * 100}</p>
                     </div>
                   </Link>
-                  
+
                   <div className="btn">
                     <button className="addToCartBtn" onClick={() => handleAddToCart(product)}>Add to Cart</button>
                     <p className="wishlist-btn" onClick={() => addToWishlist(product)}>

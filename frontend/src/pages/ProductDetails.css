@@ -9,12 +9,15 @@
   }
   
   .back-btn {
-    background: #ff6f61;
+    background: #007bff;
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
     border-radius: 5px;
+  }
+  .back-btn:hover{
+    background: #01448c;
   }
   
   .product-details {
@@ -60,9 +63,10 @@
     border-radius: 5px;
   }
   
-   /* .wishlist-btn {
-    background: #ffc107;
-  }  */
+   .wishlist-btn {
+    /* background: #ffc107; */
+ color: white;
+  } 
 
   .add-to-cart:hover{
     color: #4CAF50;

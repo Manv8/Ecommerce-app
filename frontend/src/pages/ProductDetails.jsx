@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import axios from "axios";
 import "./ProductDetails.css";
 
 const ProductDetails = () => {
@@ -10,35 +11,31 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-   const [cartMessage, setCartMessage] = useState(false);
+  const [cartMessage, setCartMessage] = useState(false);
 
-   const handleAddToCart = (product) => {
-       addToCart(product);
-       setCartMessage(true);
-       setTimeout(() => setCartMessage(false), 3000);
-     };
   useEffect(() => {
     const fetchProduct = async () => {
-        
-
       try {
-        const products = JSON.parse(localStorage.getItem("products")) || [];
-        const response = await fetch("https://api.escuelajs.co/api/v1/products");
-        const apiProducts = await response.json();
-        
-        const allProducts = [...apiProducts, ...products];
-        const foundProduct = allProducts.find((p) => p.title.replace(/\s+/g, "-").toLowerCase() === productName);
+        const response = await axios.get("https://dummyjson.com/products");
+        const apiProducts = response.data.products || []; // Ensure correct API access
+        const localProducts = JSON.parse(localStorage.getItem("products")) || [];
+
+        const allProducts = [...apiProducts, ...localProducts];
+
+        // Find the product by matching its slugified title
+        const foundProduct = allProducts.find(
+          (p) => p.title.replace(/\s+/g, "-").toLowerCase() === productName
+        );
 
         if (foundProduct) {
           setProduct(foundProduct);
         } else {
           setError(true);
         }
-
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching product details:", err);
+      } catch (error) {
+        console.error("Error fetching product:", error);
         setError(true);
+      } finally {
         setLoading(false);
       }
     };
@@ -46,21 +43,28 @@ const ProductDetails = () => {
     fetchProduct();
   }, [productName]);
 
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setCartMessage(true);
+    setTimeout(() => setCartMessage(false), 3000);
+  };
+
   if (loading) return <p className="loading-message">Loading product details...</p>;
-  if (error) return <p className="error-message">Product not found!</p>;
+  if (error || !product) return <p className="error-message">Product not found!</p>;
 
   return (
     <div className="product-details-container">
-           {cartMessage && (
+      {cartMessage && (
         <div className="cartmsg">
           <p>✅ Item added to cart</p>
           <button onClick={() => setCartMessage(false)}>✖</button>
         </div>
       )}
+
       <button className="back-btn" onClick={() => navigate(-1)}>⬅ Back</button>
 
       <div className="product-details">
-        <img src={product.images ? product.images[0] : product.image} alt={product.title} className="product-image" />
+        <img src={product.images?.[0] || product.image} alt={product.title} className="product-image" />
         <div className="product-info">
           <h1>{product.title}</h1>
           <p className="product-price">₹ {product.price * 100}</p>

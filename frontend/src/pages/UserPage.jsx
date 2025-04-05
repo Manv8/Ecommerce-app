@@ -35,7 +35,7 @@ const UserPage = () => {
 
       <div className="user-options">
         <button onClick={() => navigate("/orders")}>Order History</button>
-        <button onClick={() => navigate("/help")}>Help & Support</button>
+        <button onClick={() => navigate("/jarvis")}>Help & Support</button>
         <button onClick={() => navigate("/refunds")}>Refunds</button>
         <button onClick={() => navigate("/refer")}>Refer & Earn</button>
         <button onClick={() => navigate("/rewards")}>Rewards</button>
