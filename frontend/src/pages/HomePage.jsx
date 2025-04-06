@@ -5,6 +5,7 @@ import ProductList from "./ProductList";
 import Footer from "./Footer";
 
 const HomePage = () => {
+  
   return (
     <div>
     

@@ -1,0 +1,3 @@
+{
+    JWY_KEY = bdkcqjebqekqebv
+}

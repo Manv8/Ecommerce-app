@@ -1,31 +1,88 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const navigate = useNavigate(); // Initialize navigate
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullname, setFullname] = useState(""); // Only used for signup
+  const [error, setError] = useState("");
 
-  const toggleAuthMode = () => setIsLogin(!isLogin);
+  const navigate = useNavigate();
 
-  // Function to close login and navigate to homepage
-  const handleClose = () => {
-    navigate("/home"); // Redirect to homepage
+  const toggleAuthMode = () => {
+    setIsLogin(!isLogin);
+    setError(""); // clear error on toggle
+  };
+
+  const handleAuth = async (e) => {
+    e.preventDefault();
+
+    const url = isLogin
+      ? "http://localhost:3000/api/auth/login"
+      : "http://localhost:3000/api/auth/register";
+
+    const payload = isLogin
+      ? { email, password }
+      : { fullname, email, password };
+
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        credentials: "include", // Allow cookies
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        navigate("/home"); // Navigate to your homepage
+      } else {
+        setError(data.message || "Authentication failed");
+      }
+    } catch (err) {
+      setError("Server error. Please try again later.");
+    }
   };
 
   return (
     <div className="auth-container">
       <div className="auth-box">
-        <button className="cancel-button" onClick={handleClose}>&times;</button>
         <h2>{isLogin ? "Login" : "Sign Up"}</h2>
-        <form>
-          {!isLogin && <input type="text" placeholder="Username" required />}
-          <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
+        <form onSubmit={handleAuth}>
+          {!isLogin && (
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={fullname}
+              onChange={(e) => setFullname(e.target.value)}
+              required
+            />
+          )}
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          {error && <p className="error-text">{error}</p>}
           <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
         </form>
-        <p onClick={toggleAuthMode}>
-          {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
+        <p onClick={toggleAuthMode} className="toggle-auth">
+          {isLogin
+            ? "Don't have an account? Sign Up"
+            : "Already have an account? Login"}
         </p>
       </div>
     </div>

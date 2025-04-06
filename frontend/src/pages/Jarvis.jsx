@@ -65,7 +65,7 @@ const Jarvis = () => {
       const transcript = event.results[currentIndex][0].transcript;
       content.placeholder = transcript;
       takeCommand(transcript.toLowerCase());
-      ironman.style.display = "none";
+      ironman.style.display = "block";
       descrip.style.display = "none";
       inputGif.style.display = "none";
       cancel.style.display = "none";
@@ -75,7 +75,7 @@ const Jarvis = () => {
     sendbtn.addEventListener("click", () => {
       const input = content.value;
       takeCommand(input.toLowerCase());
-      ironman.style.display = "none";
+      ironman.style.display = "block";
       descrip.style.display = "none";
       inputGif.style.display = "none";
       cancel.style.display = "none";
@@ -97,20 +97,6 @@ const Jarvis = () => {
             speak(response);
             resultArea.innerHTML = response;
             content.innerHTML= ""
-        }else if(message.includes("quiz")){
-              const index = Math.floor(Math.random()*triviaQuestions.length)
-              const currentQuestion = triviaQuestions[index]
-              speak(currentQuestion.question)
-              resultArea.innerHTML = currentQuestion.question
-    
-              if (content.value== currentQuestion.answer) {
-                speak("it is a correct answer")
-                resultArea +=`<br> ${currentQuestion.answer},it is a correct answer ` 
-                
-              }else
-                speak("it is a wrong answer")
-                resultArea +=`<br> ${currentQuestion.answer},it is a wrong answer ` 
-              
         }
          else if (message.includes("who is manvender") || message.includes("manv") || message.includes("manvender")) {
             speak("he is my master who created me")
@@ -210,6 +196,12 @@ const Jarvis = () => {
         
             speak(result);
             resultArea.innerHTML = result;
+        }else if(message.includes("refund") || message.includes("return")|| message.includes("money back")){
+                  speak("these are the step for how to return/replace an item in URBAN CART and refund")
+            resultArea.innerHTML = "these are the step for how to return/replace an item in URBAN CART and refund  ";
+        }else if(message.includes("urban-cart") || message.includes("urban")|| message.includes("what is urban cart")){
+                  speak("Urban Cart is a modern e-commerce web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It allows users to browse, purchase, and manage products seamlessly with a user-friendly interface.")
+            resultArea.innerHTML = "Urban Cart is a modern e-commerce web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It allows users to browse, purchase, and manage products seamlessly with a user-friendly interface.";
         }
         else {
             window.open(`https://www.google.com/search?q=${message.replace(" ", "+")}`, "_blank");
@@ -218,39 +210,39 @@ const Jarvis = () => {
         }
     }
 
-    const checkbox = document.getElementById("checkbox");
-    checkbox.addEventListener("change", () => {
-      document.body.classList.toggle("dark");
-    });
+    // const checkbox = document.getElementById("checkbox");
+    // checkbox.addEventListener("change", () => {
+    //   document.body.classList.toggle("dark");
+    // });
   }, []);
 
   return (
     <>
-    <div class="main">
-        <div>
+    <div className="main">
+        {/* <div>
             <input type="checkbox" class="checkbox" id="checkbox"/>
             <label for="checkbox" class="checkbox-label">
               <i class="fas fa-moon"></i>
               <i class="fas fa-sun"></i>
               <span class="ball"></span>
             </label>
-          </div>
-        <div class="image-container">
-            <div class="image">
-                <img class="ironman" src={ironman} alt="image"/>
-                <img class="inputgif" src={inputgif} alt="image"/>
+          </div> */}
+        <div className="image-container">
+            <div className="image">
+                <img className="ironman" src={ironman} alt="image"/>
+                <img className="inputgif" src={inputgif} alt="image"/>
             </div>
             <h1 className="jarvistitle">J A R V I S</h1>
-            <p class="descrip">I m a Virtual Assistant JARVIS, How may I help you?</p>
+            <p className="descrip">I m a Virtual Assistant JARVIS, How may I help you?</p>
             <div>
-            <p class="resultArea"></p>
+            <p className="resultArea"></p>
         </div>
         </div>
-        <div class="input">
-            <button class="talk"><i class="fas fa-microphone-alt"></i></button>
-            <button class="cancel">cancel</button>
-            <input class="content" placeholder="Enter your command or speak "   />
-            <button class="send-btn"> send</button>
+        <div className="input">
+            <button className="talk"><i className="fas fa-microphone-alt"></i></button>
+            <button className="cancel">cancel</button>
+            <input className="content" placeholder="Enter your command or speak "   />
+            <button className="send-btn"> send</button>
             
         </div>
     </div>

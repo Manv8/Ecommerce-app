@@ -72,7 +72,7 @@ const ProductDetails = () => {
 
           <div className="product-actions">
             <button className="add-to-cart" onClick={() => handleAddToCart(product)}>Add to Cart</button>
-            <button className="wishlist-btn" onClick={() => addToWishlist(product)}>
+            <button className="wishlist-btn1" onClick={() => addToWishlist(product)}>
               {wishlist.some((item) => item.id === product.id) ? "❤️ Remove from Wishlist" : "♡ Add to Wishlist"}
             </button>
           </div>

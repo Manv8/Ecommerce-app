@@ -34,17 +34,24 @@ body.dark {
   }
   
   .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin-bottom: 2rem;
   }
   
   .image {
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   }
   
   .ironman {
-    width: 200px;
-    height: auto;
+    width: 350px;
+    height: 300px;
     display: block;
     margin: 0 auto;
   }
@@ -75,7 +82,7 @@ body.dark {
     font-size: 1.2rem;
     font-weight: 500;
     min-height: 30px;
-    color: #007bff;
+    color: #fafcfd;
   }
   
   /* Input Area */
