@@ -1,0 +1,95 @@
+/* RefundPage.css */
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .refund-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .refund-container h2 {
+    margin-bottom: 1.5rem;
+    color: #222;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    color: #1d4ed8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  
+  .back-button:hover {
+    text-decoration: underline;
+  }
+  
+  .no-orders {
+    color: #666;
+    font-style: italic;
+  }
+  
+  .refund-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  select,
+  textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .submit-button {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #b91c1c;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .refund-container {
+      padding: 1rem;
+    }
+  
+    .submit-button {
+      width: 100%;
+    }
+  }
+  

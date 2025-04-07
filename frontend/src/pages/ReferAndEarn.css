@@ -1,0 +1,102 @@
+/* ReferAndEarn.css */
+
+body {
+    background-color: #f6f6f6;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .refer-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .refer-container h2 {
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+  
+  .refer-container p {
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .referral-box {
+    background: #f3f4f6;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .referral-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+  
+  .referral-code span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  
+  .referral-code button {
+    padding: 6px 12px;
+    background-color: #1e40af;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .referral-code button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .earnings {
+    margin-bottom: 1.5rem;
+    background: #e0f2fe;
+    padding: 1rem;
+    border-radius: 8px;
+    color: #0c4a6e;
+  }
+  
+  .share-button {
+    background-color: #10b981;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s;
+  }
+  
+  .share-button:hover {
+    background-color: #059669;
+  }
+  
+  .how-it-works h3 {
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+  
+  .how-it-works ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+  }
+  
+  .how-it-works li {
+    margin-bottom: 0.5rem;
+    color: #444;
+  }
+  

@@ -67,7 +67,7 @@ const ProductDetails = () => {
         <img src={product.images?.[0] || product.image} alt={product.title} className="product-image" />
         <div className="product-info">
           <h1>{product.title}</h1>
-          <p className="product-price">₹ {product.price * 100}</p>
+          <p className="product-price">₹ {Math.floor(product.price * 100)}</p>
           <p className="product-description">{product.description || "No description available."}</p>
 
           <div className="product-actions">

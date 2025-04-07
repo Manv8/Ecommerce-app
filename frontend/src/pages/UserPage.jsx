@@ -39,6 +39,7 @@ const UserPage = () => {
         <button onClick={() => navigate("/refunds")}>Refunds</button>
         <button onClick={() => navigate("/refer")}>Refer & Earn</button>
         <button onClick={() => navigate("/rewards")}>Rewards</button>
+        
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </div>
 

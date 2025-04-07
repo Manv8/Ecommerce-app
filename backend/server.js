@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import productRoutes from "./routes/productsRouter.js"
 
 import authRoutes from "./routes/authRoutes.js";
 
@@ -11,6 +12,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
+app.use("/api/products", productRoutes);
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());

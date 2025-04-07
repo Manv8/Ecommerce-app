@@ -6,14 +6,14 @@ const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [fullname, setFullname] = useState(""); // Only used for signup
+  const [fullname, setFullname] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const toggleAuthMode = () => {
     setIsLogin(!isLogin);
-    setError(""); // clear error on toggle
+    setError("");
   };
 
   const handleAuth = async (e) => {
@@ -32,14 +32,14 @@ const Login = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-        credentials: "include", // Allow cookies
+        credentials: "include",
       });
 
       const data = await res.json();
 
       if (res.ok) {
         localStorage.setItem("token", data.token);
-        navigate("/home"); // Navigate to your homepage
+        navigate("/home");
       } else {
         setError(data.message || "Authentication failed");
       }
@@ -79,11 +79,20 @@ const Login = () => {
           {error && <p className="error-text">{error}</p>}
           <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
         </form>
+
         <p onClick={toggleAuthMode} className="toggle-auth">
           {isLogin
             ? "Don't have an account? Sign Up"
             : "Already have an account? Login"}
         </p>
+
+        {/* ✅ Skip Button */}
+        <button
+          className="skip-btn"
+          onClick={() => navigate("/home")}
+        >
+          Skip & Continue
+        </button>
       </div>
     </div>
   );

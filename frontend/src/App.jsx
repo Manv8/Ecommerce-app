@@ -15,10 +15,13 @@ import OrderSuccess from "./pages/OrderSuccess";
 import Footer from "./pages/Footer";
 import UserOrders from "./pages/UserOrders";
 import Jarvis from "./pages/Jarvis";
+import RefundPage from "./pages/RefundPage";
+import ReferAndEarn from "./pages/ReferAndEarn";
+import RewardsPage from "./pages/RewardsPage";
 
 function App() {
   return (
-    <CartProvider>
+    <CartProvider >
       <Router>
         <Navbar />
         <Routes>
@@ -34,6 +37,10 @@ function App() {
           <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="/orders" element={<UserOrders />} />
           <Route path="/jarvis" element={<Jarvis />} />
+          <Route path="/refunds" element={<RefundPage />} />
+          <Route path="/refer" element={<ReferAndEarn />} />
+          <Route path="/rewards" element={<RewardsPage />} />
+
         </Routes>
       </Router>
     </CartProvider>

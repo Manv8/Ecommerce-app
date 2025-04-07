@@ -1,0 +1,84 @@
+/* RewardsPage.css */
+
+body {
+    background-color: #f8f9fa;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .rewards-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rewards-container h2 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 1rem;
+  }
+  
+  .reward-summary {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #fef3c7;
+    border: 1px solid #fcd34d;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .reward-summary p {
+    margin: 0;
+    font-size: 1rem;
+    color: #92400e;
+  }
+  
+  .reward-summary h3 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    color: #92400e;
+  }
+  
+  .redeem-btn {
+    background-color: #f59e0b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .redeem-btn:hover {
+    background-color: #d97706;
+  }
+  
+  .reward-history h4 {
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+  
+  .reward-history table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .reward-history th,
+  .reward-history td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .reward-history th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+  }
+  
+  .reward-history tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+  

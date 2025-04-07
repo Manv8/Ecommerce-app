@@ -43,7 +43,7 @@ const Checkout = () => {
         <input type="text" name="address" placeholder="Shipping Address" required onChange={handleChange} />
         <input type="text" name="phone" placeholder="Phone Number" required onChange={handleChange} />
         
-        <h3>Total Amount: ₹ {total.toFixed(2)*100}</h3>
+        <h3>Total Amount: ₹ {Math.floor(total.toFixed(2)*100)}</h3>
 
         <button type="submit">Proceed to Payment</button>
       </form>
