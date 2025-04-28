@@ -1,17 +1,29 @@
-// const express = require("express");
-// const router = express.Router();
-// const {isLoggedIn} = require("../middlewares/isLoggedIn");
-// // const shop = require("../views/shop")
+import express from "express";
+import { registerUser, loginUser, logoutUser } from "../controllers/authcontroller.js";
+import { isLoggedIn } from "../middlewares/isLoggedIn.js";
 
-// // Homepage route
-// router.get("/", (req, res) => {
-//   let error = req.flash("error");  // Fetch the flash message
-//   res.render("index", { error });  // Pass it to the template
-// });
-// router.get("/home", (req, res) => {
-  
-// res.render('home',);    // Only accessible if the user is logged in
-// });
+const router = express.Router();
 
+// Public route
+router.get("/", (req, res) => {
+  res.send("Welcome to User API");
+});
 
-// module.exports = router;
+// Register
+router.post("/register", registerUser);
+
+// Login
+router.post("/login", loginUser);
+
+// Logout
+router.get("/logout", logoutUser);
+
+// ✅ Index route - returns user info if logged in
+router.get("/me", isLoggedIn, (req, res) => {
+  res.status(200).json({
+    message: "User info",
+    user: req.user,
+  });
+});
+
+export default router;

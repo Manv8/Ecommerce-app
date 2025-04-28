@@ -4,7 +4,7 @@ import { loginUser, registerUser, logoutUser } from "../controllers/authcontroll
 const router = express.Router();
 
 router.post("/register", registerUser);
-router.post("/login", loginUser);
+router.post("/login",loginUser);
 router.get("/logout", logoutUser);
 
 export default router;

@@ -13,7 +13,6 @@ const Navbar = () => {
     { name: "Cart", path: "/cart" },
     { name: "Wishlist", path: "/wishlist" },
     { name: "Login", path: "/" },
-    { name: "Seller", path: "/seller" },
     { name: <FaUser />, path: "/user" },
   ];
 

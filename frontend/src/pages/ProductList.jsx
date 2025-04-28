@@ -75,7 +75,7 @@ const ProductList = () => {
                     <img src={product.images?.[0] || product.image} alt={product.title} />
                     <div className="productDet">
                       <h3>{product.description || "No description available."}</h3>
-                      <p>₹ {product.price * 100}</p>
+                      <p>₹ {Math.floor(product.price * 100)}</p>
                     </div>
                   </Link>
 

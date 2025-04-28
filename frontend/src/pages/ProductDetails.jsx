@@ -12,7 +12,8 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [cartMessage, setCartMessage] = useState(false);
-
+  const [reviews, setReviews] = useState([]);
+  
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -22,13 +23,13 @@ const ProductDetails = () => {
 
         const allProducts = [...apiProducts, ...localProducts];
 
-        // Find the product by matching its slugified title
         const foundProduct = allProducts.find(
           (p) => p.title.replace(/\s+/g, "-").toLowerCase() === productName
         );
 
         if (foundProduct) {
           setProduct(foundProduct);
+          setReviews(foundProduct.reviews || []); // Assuming product reviews are part of the product data
         } else {
           setError(true);
         }
@@ -47,6 +48,12 @@ const ProductDetails = () => {
     addToCart(product);
     setCartMessage(true);
     setTimeout(() => setCartMessage(false), 3000);
+  };
+
+  const calculateAverageRating = () => {
+    if (reviews.length === 0) return 0;
+    const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+    return totalRating / reviews.length;
   };
 
   if (loading) return <p className="loading-message">Loading product details...</p>;
@@ -70,6 +77,17 @@ const ProductDetails = () => {
           <p className="product-price">₹ {Math.floor(product.price * 100)}</p>
           <p className="product-description">{product.description || "No description available."}</p>
 
+          <div className="product-rating">
+            <p className="average-rating">Average Rating: {calculateAverageRating().toFixed(1)} / 5</p>
+            <div className="stars">
+              {Array(5).fill().map((_, index) => (
+                <span key={index} className={`star ${index < calculateAverageRating() ? "filled" : ""}`}>
+                  ★
+                </span>
+              ))}
+            </div>
+          </div>
+
           <div className="product-actions">
             <button className="add-to-cart" onClick={() => handleAddToCart(product)}>Add to Cart</button>
             <button className="wishlist-btn1" onClick={() => addToWishlist(product)}>
@@ -78,6 +96,27 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+
+      {reviews.length > 0 && (
+        <div className="reviews-section">
+          <h2>Customer Reviews</h2>
+          {reviews.map((review, index) => (
+            <div key={index} className="review-item">
+              <div className="review-header">
+                <p className="review-author">John Doe</p>
+                <div className="review-stars">
+                  {Array(5).fill().map((_, i) => (
+                    <span key={i} className={`star ${i < review.rating ? "filled" : ""}`}>
+                      ★
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <p className="review-text">{review.text}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

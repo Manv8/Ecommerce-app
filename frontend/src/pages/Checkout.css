@@ -1,47 +1,62 @@
 .checkout-container {
-    width: 50%;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .checkout-container h2 {
-    margin-bottom: 20px;
-  }
-  
-  .checkout-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .checkout-container input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .checkout-container h3 {
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
-  .checkout-container button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  
-  .checkout-container button:hover {
-    background-color: #218838;
-  }
-  
+  background-color: #f7fafc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.checkout-container h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #4c51bf; /* Indigo color */
+  margin-bottom: 20px;
+}
+
+.checkout-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-container input {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 90%;
+  color: #4a5568;
+}
+
+.checkout-container input:focus {
+  outline: none;
+  border-color: #4c51bf;
+}
+
+.checkout-container .total-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.checkout-container button {
+  padding: 14px;
+  background-color: #141E30;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-container button:hover {
+  background-color: #1c3055;
+}

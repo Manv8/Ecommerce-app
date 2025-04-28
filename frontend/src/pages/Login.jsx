@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import axios from "axios";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -8,6 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,33 +20,29 @@ const Login = () => {
 
   const handleAuth = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const url = isLogin
-      ? "http://localhost:3000/api/auth/login"
-      : "http://localhost:3000/api/auth/register";
+    ? "http://localhost:5001/api/auth/login"
+    : "http://localhost:5001/api/auth/register";
+  
 
     const payload = isLogin
       ? { email, password }
       : { fullname, email, password };
 
     try {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        credentials: "include",
+      const response = await axios.post(url, payload, {
+        withCredentials: true, // to send/receive cookies
       });
 
-      const data = await res.json();
-
-      if (res.ok) {
-        localStorage.setItem("token", data.token);
-        navigate("/home");
-      } else {
-        setError(data.message || "Authentication failed");
-      }
+      setLoading(false);
+      navigate("/home"); // navigate after successful login/signup
     } catch (err) {
-      setError("Server error. Please try again later.");
+      setLoading(false);
+      setError(
+        err.response?.data?.message || "Something went wrong. Try again."
+      );
     }
   };
 
@@ -77,7 +75,9 @@ const Login = () => {
             required
           />
           {error && <p className="error-text">{error}</p>}
-          <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Please wait..." : isLogin ? "Login" : "Sign Up"}
+          </button>
         </form>
 
         <p onClick={toggleAuthMode} className="toggle-auth">
@@ -86,11 +86,7 @@ const Login = () => {
             : "Already have an account? Login"}
         </p>
 
-        {/* ✅ Skip Button */}
-        <button
-          className="skip-btn"
-          onClick={() => navigate("/home")}
-        >
+        <button className="skip-btn" onClick={() => navigate("/home")}>
           Skip & Continue
         </button>
       </div>

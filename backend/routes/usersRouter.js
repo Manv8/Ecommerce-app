@@ -1,14 +1,16 @@
-// const express = require("express")
-// const router = express.Router()
-// const {registerUser ,loginUser} = require("../controllers/authcontroller")
+// routes/authRoutes.js
+import express from "express";
+import { registerUser, loginUser, logoutUser } from "../controllers/authcontroller.js";
+import { isLoggedIn } from "../middlewares/isLoggedIn.js";
 
+const router = express.Router();
 
-// router.get("/", (req, res) => {
-//     res.send("hello this is users")
-// })
+router.get("/", (req, res) => {
+  res.send("Hello, this is users route");
+});
 
-// router.post("/register", registerUser )
-// router.post("/login", loginUser )
+router.post("/register", registerUser);
+router.post("/login", isLoggedIn, loginUser);
+router.get("/logout", logoutUser);
 
-
-// module.exports = router
+export default router;
